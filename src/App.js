@@ -8,12 +8,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //steles
 import "./App.css";
+import ThemeSelector from "./components/ThemeSelector";
+import { useTheme } from "./hooks/useTheme";
 
 function App() {
+  const {mode} = useTheme();
+
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       <Router>
         <NavBar />
+        <ThemeSelector />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/create" element={<Create />} />
