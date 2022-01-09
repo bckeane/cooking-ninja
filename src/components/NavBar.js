@@ -1,14 +1,16 @@
-import { Link } from 'react-router-dom'
-import SearchBar from './SearchBar'
+import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
+import { useTheme } from '../hooks/useTheme';
 
 // styles
 import './NavBar.css'
 
 
 export default function Navbar() {
+  const { color, changeColor } = useTheme();
   return (
-    <div className="navbar">
-      <nav>
+    <div className="navbar" style= {{backgroundColor: color}}>
+      <nav onClick={() => changeColor('pink')}>
         <Link to="/" className="brand">
           <h1>Cooking Ninja</h1>
         </Link>
